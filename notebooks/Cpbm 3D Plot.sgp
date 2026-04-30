@@ -1,0 +1,81 @@
+"
+{</[File] <Start>}
+Simple Grapher Project File.    DO NOT EDIT!
+Algorithm Version=1.1
+File Version=1.5
+
+[Setting]
+[Quality]=90
+[Thickness]=2
+[IntMin]=-1
+[IntMax]=1
+
+[Plot]
+[Plot][xMin]=-15.5667506297229
+[Plot][xMax]=4.43324937027708
+[Plot][yMin]=-5.87261146496815
+[Plot][yMax]=14.1273885350318
+[Plot][AxisColor]=16711680
+[Plot][BackColor]=16777215
+[Plot][Lock]=False
+[Plot][Angle]=1
+[Plot][Grid][Visibility]=True
+[Plot][Grid][Type]=1
+[Plot][Arrows]=1
+[Plot][Label][X]=x
+[Plot][Label][Y]=y
+
+[Tabs]
+[Tab]=3
+
+[Tabs][Function]
+[Function](0)=[255:[r,theta;,]:False,False,False,True,True,0:False]
+[Note](0)
+{\rtf1\ansi\deff0{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
+\viewkind4\uc1\pard\lang2049\f0\fs24 Your note here.
+\par }
+
+[EndNote](0)
+
+[Tabs][Inequality]
+[Inq][Two]=1
+[Inq][Op][1]=<
+[Inq][Op][2]=>
+[Inq][Equ][1]=x
+[Inq][Equ][2]=x
+[Inq][Color][Line]=255
+[Inq][Color]=16776960
+
+[Tabs][Parametric]
+[Para][Type]=Cartesian
+[Para][Color]=255
+[Para][X]=t
+[Para][Y]=t
+[Para][tMin]=-pi
+[Para][tMax]=pi
+
+[Tabs][3D]
+[3D][Tab]=1
+[3D][Zoom]=1
+[3D][Grid]=Grid: 100x100
+[3D][Function]=z=x+y
+[3D][Polar]=2*f..var..symb+q..symb
+[3D][Para][X]=u
+[3D][Para][Y]=u*v
+[3D][Para][Z]=u+v
+[3D][zMin]=-2
+[3D][zMax]=2
+[3D][yMin]=-2
+[3D][yMax]=2
+[3D][xMin]=-2
+[3D][xMax]=2
+[3D][thetaMin]=-2*pi
+[3D][thetaMax]=2*pi
+[3D][phiMin]=0
+[3D][phiMax]=pi
+[3D][uMin]=0
+[3D][uMax]=2
+[3D][vMin]=0
+[3D][vMax]=2
+{[File]>/ <end>}
+"

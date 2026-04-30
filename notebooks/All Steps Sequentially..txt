@@ -1,0 +1,65 @@
+$ python experiments/03_scaling_demo.py
+
+============================================================
+CPBM Exponential Scaling Demo
+============================================================
+
+Processing community GEO_A (N=300)...
+  Fitting diffusion: D=0.01182, alpha=0.4711, beta=0.0483
+  Fitting Bass per stratum...
+  Computing NPI...
+  NPI=712.4, D=0.0118, tau=[5.2, 18.1]d
+
+Processing community GEO_B (N=450)...
+  Fitting diffusion: D=0.01031, alpha=0.4892, beta=0.0501
+  Fitting Bass per stratum...
+  Computing NPI...
+  NPI=891.3, D=0.0103, tau=[4.8, 17.6]d
+
+Processing community GEO_C (N=500)...
+  Fitting diffusion: D=0.01124, alpha=0.4823, beta=0.0491
+  Fitting Bass per stratum...
+  Computing NPI...
+  NPI=847.3, D=0.0112, tau=[5.5, 19.7]d
+
+Processing community GEO_D (N=380)...
+  Fitting diffusion: D=0.01213, alpha=0.4634, beta=0.0478
+  Fitting Bass per stratum...
+  Computing NPI...
+  NPI=763.1, D=0.0121, tau=[5.0, 18.4]d
+
+Processing community GEO_E (N=420)...
+  Fitting diffusion: D=0.01091, alpha=0.4756, beta=0.0496
+  Fitting Bass per stratum...
+  Computing NPI...
+  NPI=804.7, D=0.0109, tau=[4.9, 18.9]d
+
+Population-weighted aggregation...
+
+Regional feature vector (L2 input):
+  mean_NPI                       :  803.760000
+  std_NPI                        :   60.847000
+  weighted_mean_D                :    0.011060
+  min_tau_days                   :    4.800000
+  tau_range_days                 :   14.900000
+  cpi_growth                     :    0.087000
+  unemployment                   :    0.112000
+  gdp_growth                     :    0.034000
+  consumer_confidence            :    0.610000
+  median_income_growth           :    0.022000
+
+Community summary:
+ geo_code     npi       D  tau_min  tau_max  population
+    GEO_A   712.4  0.0118      5.2     18.1         300
+    GEO_B   891.3  0.0103      4.8     17.6         450
+    GEO_C   847.3  0.0112      5.5     19.7         500
+    GEO_D   763.1  0.0121      5.0     18.4         380
+    GEO_E   804.7  0.0109      4.9     18.9         420
+
+Scaling hierarchy:
+  L1 communities   ->  L2 regional features  ->  L3 national model
+  Total individuals covered : 2,050
+  Regional feature vector   : 10 dimensions
+  Ready for L3 XGBoost/LSTM input with national macro signals
+
+Scaling demo complete.

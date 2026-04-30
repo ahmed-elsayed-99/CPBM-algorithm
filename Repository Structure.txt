@@ -1,0 +1,48 @@
+cpbm/
+├── README.md
+├── LICENSE
+├── setup.py
+├── requirements.txt
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── cpbm/
+│   __init__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── signature.py
+│   │   ├── diffusion.py
+│   │   ├── stratum.py
+│   │   └── npi.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── xgb_layer.py
+│   │   ├── lstm_layer.py
+│   │   ├── gat_layer.py
+│   │   └── ensemble.py
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── schema.sql
+│   │   ├── loader.py
+│   │   └── synthetic.py
+│   ├── scaling/
+│   │   ├── __init__.py
+│   │   └── aggregator.py
+│   ├── evaluation/
+│   │   ├── __init__.py
+│   │   └── metrics.py
+│   └── viz/
+│       ├── __init__.py
+│       └── plots.py
+├── experiments/
+│   ├── 01_synthetic_baseline.py
+│   ├── 02_real_data_fmcg.py
+│   └── 03_scaling_demo.py
+├── notebooks/
+│   ├── 01_signature_exploration.ipynb
+│   └── 02_full_pipeline.ipynb
+└── tests/
+    ├── test_signature.py
+    ├── test_diffusion.py
+    ├── test_ensemble.py
+    └── test_scaling.py

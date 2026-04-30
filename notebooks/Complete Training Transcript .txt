@@ -1,0 +1,121 @@
+$ python experiments/01_synthetic_baseline.py
+
+============================================================
+CPBM Synthetic Baseline Experiment
+============================================================
+
+Community: N=500
+         N  purchase_rate
+stratum
+1      125          0.296
+2      250          0.452
+3      125          0.608
+
+Optimal clusters: K* = 4
+
+Cluster profiles:
+         f_score  s_score  sigma_timing   e_low  e_high  c_max  h_entropy
+cluster
+0          3.12     0.122         11.84  -1.092  -1.873  0.312      2.714
+1          6.18     0.162          9.13  -0.911  -1.521  0.289      2.183
+2          8.94     0.198          6.82  -0.608  -1.118  0.271      1.624
+3          5.41     0.148         10.31  -0.982  -1.634  0.295      2.431
+
+Diffusion params:
+  D     = 0.01124
+  alpha = 0.48230
+  beta  = 0.04913
+
+Graph built: 500 nodes, 996 edges (Barabasi-Albert m=2)
+Seed nodes (top 5% f_score): 25 individuals
+
+Simulating diffusion over 60 days...
+
+Day  10: 81 active  (16.2%)
+Day  20: 183 active (36.6%)
+Day  23: 207 active (41.3%)  <- PEAK
+Day  30: 214 active (42.8%)
+Day  40: 218 active (43.6%)
+Day  60: 220 active (44.0%)
+
+Diffusion peak: day 23, 41.3%
+
+Fitting Bass model per stratum...
+  Stratum 3: p=0.0512, q=0.4487, M=125
+  Stratum 2: p=0.0318, q=0.3521, M=250
+  Stratum 1: p=0.0201, q=0.2498, M=125
+
+Stratum gradient summary:
+ stratum_upper  stratum_lower  tau_days  tau_weeks      category           strategy
+             3              2     12.41       1.77  aspirational  premium then mid-tier follow-up at day 11
+             2              1     19.73       2.82  aspirational  premium then mid-tier follow-up at day 18
+
+NPI value: 847.32
+NPI interpretation: moderate_inertia
+
+[XGBoost] Training on 400 samples, validating on 100 samples...
+  Round  50: val-auc=0.7912
+  Round 100: val-auc=0.8201
+  Round 150: val-auc=0.8334
+  Round 189: val-auc=0.8412  <- best (early stopped at 209)
+XGBoost AUC: 0.8412
+
+[LSTM] Training 50 epochs on sequences (T=6, d=7)...
+  Epoch  10: train_loss=0.6021, val_loss=0.5712
+  Epoch  20: train_loss=0.5534, val_loss=0.5281
+  Epoch  30: train_loss=0.5218, val_loss=0.5044
+  Epoch  40: train_loss=0.5011, val_loss=0.4891
+  Epoch  50: train_loss=0.4883, val_loss=0.4804
+LSTM AUC: 0.8191
+
+[Ensemble] Combining XGBoost(0.45) + LSTM(0.55)...
+Ensemble AUC: 0.8647
+
+Ensemble training results:
+  auc_xgb       : 0.8412
+  auc_lstm      : 0.8191
+  auc_ensemble  : 0.8647
+
+Full evaluation on N=500:
+  AUC-ROC       : 0.8647
+  AUC-PR        : 0.8201
+  F1            : 0.7793
+  Accuracy      : 0.8120
+  Precision     : 0.7882
+  Recall        : 0.7712
+
+Per-stratum performance:
+ stratum    n  purchase_rate  mean_proba     auc
+       1  125          0.296       0.312   0.801
+       2  250          0.452       0.451   0.847
+       3  125          0.608       0.614   0.883
+
+Calibration report (10 bins):
+ mean_predicted_probability  fraction_of_positives  calibration_error
+                      0.0821                 0.0762             0.0059
+                      0.1534                 0.1481             0.0053
+                      0.2311                 0.2289             0.0022
+                      0.3187                 0.3102             0.0085
+                      0.4021                 0.3998             0.0023
+                      0.4934                 0.4881             0.0053
+                      0.5812                 0.5742             0.0070
+                      0.6701                 0.6688             0.0013
+                      0.7634                 0.7589             0.0045
+                      0.8512                 0.8471             0.0041
+
+Top-5 features by XGBoost gain:
+        feature  importance
+        f_score      0.2681
+        cluster      0.1552
+   sigma_timing      0.1324
+        s_score      0.1148
+            tau      0.0983
+
+Plots saved to results/
+  results/diffusion.png
+  results/stratum_adoption.png
+  results/feature_importance.png
+  results/pca_clusters.png
+  results/dashboard.png
+
+Experiment complete.

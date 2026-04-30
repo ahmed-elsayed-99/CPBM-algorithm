@@ -1,0 +1,44 @@
+# CPBM — Quick Reference
+
+## Install
+git clone https://github.com/ahmed-elsayed-99/CPBM-algorithm.git
+cd cpbm
+pip install -e .
+
+## Run synthetic baseline (no external data needed)
+mkdir results
+python experiments/01_synthetic_baseline.py
+
+## Run real-data FMCG experiment
+export CPBM_DATA_PATH=/path/to/your/transactions.csv
+python experiments/02_real_data_fmcg.py
+
+## Run scaling demo
+python experiments/03_scaling_demo.py
+
+## Launch notebooks
+jupyter lab notebooks/
+
+## Run tests with coverage
+pytest tests/ -v --cov=cpbm
+
+## Expected CSV schema for real data
+ind_id,amount,txn_timestamp,category,stratum
+IND_001,45.50,2023-03-14 10:22:00,packaged_juice,2
+IND_001,38.00,2023-04-01 14:05:00,packaged_juice,2
+IND_002,92.00,2023-03-20 09:10:00,packaged_juice,3
+
+## Real-data column mapping (loader.py)
+ind_col     = "ind_id"
+amount_col  = "amount"
+time_col    = "txn_timestamp"
+category_col= "category"
+stratum_col = "stratum"      # optional, int 1-5
+
+## Key outputs per experiment
+results/
+  diffusion.png             # community adoption curve
+  stratum_adoption.png      # per-stratum Bass curves with tau markers
+  feature_importance.png    # XGBoost gain bar chart
+  pca_clusters.png          # behavioural archetypes vs strata
+  dashboard.png             # 4-panel full summary

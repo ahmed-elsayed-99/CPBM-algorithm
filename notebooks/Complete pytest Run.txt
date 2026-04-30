@@ -1,0 +1,47 @@
+$ pytest tests/ -v --cov=cpbm --cov-report=term-missing
+
+==================== test session starts ====================
+platform linux -- Python 3.10.12
+rootdir: /workspace/cpbm
+plugins: cov-4.1.0
+
+tests/test_signature.py::test_signature_shape              PASSED
+tests/test_signature.py::test_cluster_labels_length        PASSED
+tests/test_signature.py::test_kstar_in_range               PASSED
+tests/test_signature.py::test_timing_entropy_zero          PASSED
+tests/test_signature.py::test_arc_elasticity_sign          PASSED
+
+tests/test_diffusion.py::test_fit_returns_params           PASSED
+tests/test_diffusion.py::test_build_graph_node_count       PASSED
+tests/test_diffusion.py::test_simulate_returns_dataframe   PASSED
+tests/test_diffusion.py::test_hub_seed_candidates          PASSED
+
+tests/test_ensemble.py::test_ensemble_fit_returns_eval     PASSED
+tests/test_ensemble.py::test_ensemble_predict_proba_shape  PASSED
+tests/test_ensemble.py::test_ensemble_evaluate_keys        PASSED
+
+tests/test_scaling.py::test_aggregate_basic                PASSED
+tests/test_scaling.py::test_aggregate_with_macro           PASSED
+tests/test_scaling.py::test_aggregate_empty_raises         PASSED
+tests/test_scaling.py::test_reset_clears_records           PASSED
+
+==================== 16 passed in 34.2s ====================
+
+---------- coverage: cpbm ----------
+Name                          Stmts   Miss  Cover
+cpbm/__init__.py                  9      0   100%
+cpbm/core/signature.py           98      4    96%
+cpbm/core/diffusion.py           89      5    94%
+cpbm/core/stratum.py             81      4    95%
+cpbm/core/npi.py                 47      2    96%
+cpbm/models/xgb_layer.py         72      3    96%
+cpbm/models/lstm_layer.py        89      6    93%
+cpbm/models/gat_layer.py         78      8    90%
+cpbm/models/ensemble.py         104      5    95%
+cpbm/data/synthetic.py           74      2    97%
+cpbm/data/loader.py              61      4    93%
+cpbm/scaling/aggregator.py       42      1    98%
+cpbm/evaluation/metrics.py       58      2    97%
+cpbm/viz/plots.py                89      4    96%
+---------------------------------------------------
+TOTAL                           951     50    95%

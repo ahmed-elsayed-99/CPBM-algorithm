@@ -1,0 +1,59 @@
+============================================================
+CPBM Synthetic Baseline Experiment
+============================================================
+
+Community: N=500
+         N  purchase_rate
+stratum
+1      125          0.296
+2      250          0.452
+3      125          0.608
+
+Optimal clusters: K* = 4
+
+Cluster profiles:
+         f_score  s_score  sigma_timing  e_low  e_high  c_max  h_entropy
+cluster
+0          3.12     0.122         11.8  -1.09   -1.87   0.312      2.71
+1          6.18     0.162          9.1  -0.91   -1.52   0.289      2.18
+2          8.94     0.198          6.8  -0.61   -1.12   0.271      1.62
+3          5.41     0.148         10.3  -0.98   -1.63   0.295      2.43
+
+Diffusion params: {'D': 0.0112, 'alpha': 0.4823, 'beta': 0.0491}
+
+Diffusion peak: day 23, 41.3%
+
+Stratum gradient summary:
+   stratum_upper  stratum_lower  tau_days  tau_weeks       category
+0              3              2     12.41       1.77    aspirational
+1              2              1     19.73       2.82    aspirational
+
+NPI value: 847.32 — moderate_inertia
+
+Ensemble training results:
+  auc_xgb: 0.8412
+  auc_lstm: 0.8191
+  auc_ensemble: 0.8647
+
+Full evaluation:
+  AUC-ROC : 0.8647
+  AUC-PR  : 0.8201
+  F1      : 0.7793
+  Accuracy: 0.8120
+
+Per-stratum performance:
+ stratum    n  purchase_rate  mean_proba     auc
+       1  125          0.296       0.312   0.801
+       2  250          0.452       0.451   0.847
+       3  125          0.608       0.614   0.883
+
+Top-5 features:
+        feature  importance
+        f_score      0.2681
+        cluster      0.1552
+   sigma_timing      0.1324
+        s_score      0.1148
+            tau      0.0983
+
+Plots saved to results/
+Experiment complete.
