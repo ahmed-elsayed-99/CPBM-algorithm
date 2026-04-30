@@ -6,15 +6,15 @@
 across socioeconomic strata via individual capital-flow signatures.**
 
 ORCID: [0009-0000-5475-3970](https://orcid.org/0009-0000-5475-3970)
-OSF: [osf.io/vwz7d](https://osf.io/vwz7d/)
-Paper: see `docs/cpbm_paper.pdf`
+OSF: [osf.io/9ukxe](https://osf.io/9ukxe/)
+Paper: see `docs/cpbm_paper.pdf` [https://sciprofiles.com/profile/ahmed_elsayed](https://sciprofiles.com/profile/ahmed_elsayed)
 
 ---
 
 ## Installation
 
 ```bash
-git clone https://github.com/ahmed-elsayed-99/cpbm.git
+git clone https://github.com/ahmed-elsayed-99/CPBM-algorithm.git
 cd cpbm
 pip install -e .
 ```
@@ -64,7 +64,7 @@ Layer 4  →  Hybrid Ensemble             XGBoost + LSTM + GAT
   year         = {2026},
   publisher    = {GitHub},
   journal      = {GitHub repository},
-  howpublished = {\url{[[https://github.com/ahmed-elsayed-99/cpbm]}},
-  note         = {OSF: https://osf.io/vwz7d/}
+  howpublished = {\url{https://github.com/ahmed-elsayed-99/CPBM-algorithm}},
+  note         = {OSF: https://osf.io/9ukxe/}
 }
 ```
