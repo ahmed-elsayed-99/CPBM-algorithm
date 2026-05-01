@@ -12,15 +12,15 @@ class XGBLayer:
 
     def __init__(
         self,
-        n_estimators int = 300,
-        max_depth int = 5,
-        learning_rate float = 0.08,
-        subsample float = 0.8,
-        colsample_bytree float = 0.8,
-        early_stopping_rounds int = 25,
-        random_state int = 42,
-        calibrate bool = True,
-        n_cv_folds int = 5,
+        n_estimators: int = 300,
+        max_depth: int = 5,
+        learning_rate: float = 0.08,
+        subsample: float = 0.8,
+        colsample_bytree: float = 0.8,
+        early_stopping_rounds: int = 25,
+        random_state: int = 42,
+        calibrate: bool = True,
+        n_cv_folds: int = 5,
     )
         self.n_estimators = n_estimators
         self.max_depth = max_depth
