@@ -6,7 +6,6 @@ from typing import List, Dict, Optional, Tuple
 import warnings
 warnings.filterwarnings("ignore")
 
-
 class DiffusionLayer:
 
     def __init__(
@@ -31,13 +30,21 @@ class DiffusionLayer:
 
     @staticmethod
     def _scalar_diffusion(t: np.ndarray, D: float, alpha: float, beta: float) -> np.ndarray:
-        return (alpha / (beta + 1e-12)) * (1 - np.exp(-beta * t)) * np.exp(-D * t ** 2)
+        t = np.asarray(t, dtype=float)
+        if t.ndim == 0:
+            t = np.array([t])
+        result = (alpha / (beta + 1e-12)) * (1 - np.exp(-beta * t)) * np.exp(-D * t ** 2)
+        return result.flatten()
 
     def fit(
         self,
         time_axis: np.ndarray,
         adoption_curve: np.ndarray,
     ) -> "DiffusionLayer":
+        # Converting data to the correct format
+        time_axis = np.asarray(time_axis, dtype=float).flatten()
+        adoption_curve = np.asarray(adoption_curve, dtype=float).flatten()
+        
         p0 = [self.D_init, self.alpha_init, self.beta_init]
         bounds = (0, [2.0, 10.0, 2.0])
         try:
@@ -129,6 +136,7 @@ class DiffusionLayer:
     def predict_curve(self, time_axis: np.ndarray) -> np.ndarray:
         if self.params_ is None:
             raise RuntimeError("Call fit first.")
+        time_axis = np.asarray(time_axis, dtype=float).flatten()
         return self._scalar_diffusion(
             time_axis,
             self.params_["D"],
