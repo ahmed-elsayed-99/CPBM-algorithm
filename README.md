@@ -15,7 +15,7 @@ Paper: see `docs/cpbm_paper.pdf` [https://sciprofiles.com/profile/ahmed_elsayed]
 
 ```bash
 git clone https://github.com/ahmed-elsayed-99/CPBM-algorithm.git
-cd cpbm
+cd CPBM-algorithm
 pip install -e .
 ```
 
