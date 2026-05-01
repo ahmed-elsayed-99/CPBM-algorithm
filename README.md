@@ -58,7 +58,7 @@ Layer 4  →  Hybrid Ensemble             XGBoost + LSTM + GAT
 ## Citation
 
 ```bibtex
-@misc{elsayed2025cpbm,
+@misc{elsayed2026cpbm,
   author       = {Elsayed, Ahmed},
   title        = {Capital-Pulse Behavioral Model (CPBM)},
   year         = {2026},
