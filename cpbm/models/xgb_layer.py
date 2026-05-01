@@ -8,7 +8,7 @@ from typing import Optional, Dict, Tuple
 import joblib
 
 
-class XGBLayer
+class XGBLayer:
 
     def __init__(
         self,
